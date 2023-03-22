@@ -1,0 +1,36 @@
+import pandas as pd
+
+df=pd.DataFrame({
+    'weight': [91, 85, 100, 75, 43, 38],
+    'height': [180, 173, 190, 170, 163, 152],
+    'gender': ['male', 'female', 'male', 'female', 'female', 'male']
+})
+
+print(df['weight']>80) #weight가 80이상이면 True 아니면 false인 데이터 frame 형성
+
+df_filtered=df[df['weight']>80] #80이상인 사람을 정의했을 때를 df_filtered에 담음
+print(df_filtered)#weight가 80 이상인 값만 남기고 출력.
+
+
+df_sorted=df_filtered.sort_values('weight', ascending=True) 
+#weight기준으로 오름차순으로 정렬. 몸무게가 적은 순으로 정렬
+
+#########2.3 pandas - 통계 관련 함수############
+
+import pandas as pd
+
+df=pd.DataFrame({
+    '몸무게':[70,80,90,82,91],
+    '키':[170,181,185,168,180]})
+
+total_age=df['몸무게'].sum()
+print(total_age)
+
+mean_age=df['키'].mean()
+print(mean_age)
+
+print(df.describe())
+corr=df.corr()
+print(corr) 
+#상관 계수가 1에 가까울 수록 양의 상관관계 -1에 가까울수록 음의 상관관계, 0에 가까울수록 서로 상관없이 독립적.
+
